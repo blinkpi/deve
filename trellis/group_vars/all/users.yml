@@ -15,8 +15,17 @@ users:
     keys:
        #- "{{ lookup('file', 'c/users/frankl/.ssh/github_rsa.pub') }}"
        - https://github.com/blinkpi.keys
+  - name: "{{ git_user }}"
+    groups:
+      - "{{ git_group }}"
+    keys:
+       - "{{ lookup('file', '.ssh/github_rsa.pub') }}"
+       - "{{ lookup('file', '.ssh/do_rsa.pub') }}"
+       - "{{ lookup('file', '.ssh/id_rsa.pub') }}"	   
 
 web_user: web
 web_group: www-data
 web_sudoers:
   - "/usr/sbin/service php7.0-fpm *"
+git_user: git
+git_group: git

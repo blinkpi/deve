@@ -1,0 +1,8 @@
+---
+- name: Create git repo deve
+  file:
+    path: /deve.git
+    owner: "{{ git_user }}"
+    group: "{{ git_group }}"
+    mode: 0755
+    state: directory
